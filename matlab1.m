@@ -35,38 +35,38 @@ for i = 3:length(D)
 
     %-------------------------------------------------------------------------
     
-    %getting the list of the .7 files in the current directory
-    seven_files = dir('*.7');
+%     %getting the list of the .7 files in the current directory
+%     seven_files = dir('*.7');
  
-     for k=1:length(seven_files)
-        np= seven_files(k).name;
+%      for k=1:length(seven_files)
+%         np= seven_files(k).name;
         
-        %need to rename the header and the .7 file to P##### format, the
-        %line below finds the corresponding header file
-        corresponding_header= strcat(np,'.hdr');
+%         %need to rename the header and the .7 file to P##### format, the
+%         %line below finds the corresponding header file
+%         corresponding_header= strcat(np,'.hdr');
         
         
         
-        %changes to the .7 & the header files
-        %----------------------------------------------------------
-        %have to split by delimiter to maintain correct naming convention
-        adjusted_np= strsplit(np,'_');
-        wanted_file = adjusted_np(3);
-        %convert from cell to numeric matrix
-        final_7 =  cell2mat(wanted_file);
+%         %changes to the .7 & the header files
+%         %----------------------------------------------------------
+%         %have to split by delimiter to maintain correct naming convention
+%         adjusted_np= strsplit(np,'_');
+%         wanted_file = adjusted_np(3);
+%         %convert from cell to numeric matrix
+%         final_7 =  cell2mat(wanted_file);
         
-        %do the same thing for headers
-        corrected_header = strcat(final_7,'.hdr');
-        %----------------------------------------------------------
+%         %do the same thing for headers
+%         corrected_header = strcat(final_7,'.hdr');
+%         %----------------------------------------------------------
         
-        %rename the .7 file to the correct P#####.7 format
-        movefile( np, final_7 );
+%         %rename the .7 file to the correct P#####.7 format
+%         movefile( np, final_7 );
         
-        %rename the .hdr file to correct format;
-        movefile( corresponding_header, corrected_header);
+%         %rename the .hdr file to correct format;
+%         movefile( corresponding_header, corrected_header);
         
     
-     end
+%      end
     
     %cycle over the .7 files
     for k=1:length(seven_files)
